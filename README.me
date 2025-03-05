@@ -1,0 +1,31 @@
+# Watchdog
+
+## Overview
+The Watchdog project is designed to manage and update a backend server using PM2. It includes scripts to start, stop, and update the server, as well as an endpoint to trigger updates from a web interface.
+
+It is currently not working, Maybe Chat GPT lied to me 
+
+## Project Structure
+- `cfg/Watchdog.code-workspace`: Configuration for Visual Studio Code workspace.
+- `Endpoint für Backend.txt`: Contains the endpoint definition for triggering updates.
+- `Notes.txt`: (Currently empty)
+- `README.me`: This file.
+- `update.sh`: Shell script to update the backend server.
+- `watchdog.js`: Main script to manage the backend server using PM2.
+
+## Files
+
+### `update.sh`
+This script stops the backend server, pulls the latest code from the repository, builds the project, and restarts the backend server.
+
+### `Endpoint für Backend.txt`
+Defines an endpoint `/update` that triggers the update process by sending a message to the watchdog.
+
+### `watchdog.js`
+Manages the backend server using PM2. It listens for update requests and handles starting, stopping, and updating the server.
+
+## Usage
+
+### Starting the Watchdog
+To start the watchdog, run:
+pm2 start watchdog

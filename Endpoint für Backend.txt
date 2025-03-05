@@ -1,0 +1,13 @@
+
+
+app.get("/update", (req, res) => {
+  console.log("Update request received from website...");
+
+  // Send update command to the watchdog
+  const pm2SendMessage = spawn("pm2", ["send", "watchdog", "update"], { stdio: "inherit" });
+
+  pm2SendMessage.on("exit", () => {
+      console.log("Update requested.");
+      res.json({ message: "Update started..." });
+  });
+});
